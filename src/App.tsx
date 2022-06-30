@@ -1,11 +1,17 @@
-import React from 'react';
+import React, { useState } from 'react';
+import InputField  from './Components/InputField';
+
 
 import './App.css';
 
-function App() {
+const App: React.FC = () => {
+  
+const [toDoItem, setToDoItem] = useState<string>("")
+
   return (
     <div className="App">
-       Cleaned this up so a completely fresh 'typescripted' React App
+    <span className= "heading"> This is the Header</span>
+      <InputField />
     </div>
   );
 }
