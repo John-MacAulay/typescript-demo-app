@@ -1,7 +1,13 @@
 import React from 'react';
 import './styles.css';
 
-export const InputField = () => {
+interface inputFieldPropsTypes{
+  toDoItem: string;
+  setToDoItem: React.Dispatch<React.SetStateAction<string>>;
+
+}
+
+export const InputField = ({toDoItem, setToDoItem} :inputFieldPropsTypes) => {
   return (
     <form className='input'>
       <input type='input' placeholder='Enter your Task' className='input__box' />
