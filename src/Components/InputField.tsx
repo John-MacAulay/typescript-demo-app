@@ -8,9 +8,17 @@ interface inputFieldPropsTypes{
 }
 
 export const InputField = ({toDo, setToDoItem, handleAdd} :inputFieldPropsTypes) => {
+
   return (
-    <form className='input' onSubmit={handleAdd} >
-      <input type='input' placeholder='Enter your Task' className='input__box' />
+    <form
+     className='input'
+      onSubmit={handleAdd} >
+      <input type='input'
+         value = {toDo}
+         onChange ={
+          (e)=> setToDoItem(e.target.value)
+         }
+      placeholder='Enter your Task' className='input__box' />
       <button className='input_submit' type='submit'>
         Submit
       </button>

@@ -5,7 +5,7 @@ import { toDoItem} from './model';
 
 const App: React.FC = () => {
 
-  const [toDo, setToDoItem] = useState<string>("");
+  const [toDo, setToDo] = useState<string>("");
   const [toDoItemList, setToDoItemList] = useState<toDoItem[]>([]);
 
   const handleAddItemOnSubmit = (e: React.FormEvent) => {
@@ -13,8 +13,7 @@ const App: React.FC = () => {
 
     if (toDo) {
       setToDoItemList([...toDoItemList, { id: Date.now(), toDoText: toDo , isDone: false }]);
-
-      setToDoItem("");
+      setToDo("");
     }
   }
 
@@ -23,7 +22,7 @@ const App: React.FC = () => {
   return (
     <div className="App">
       <span className="heading"> This is the Header</span>
-      <InputField toDo={toDo} setToDoItem={setToDoItem} handleAdd={handleAddItemOnSubmit} />
+      <InputField toDo={toDo} setToDoItem={setToDo} handleAdd={handleAddItemOnSubmit} />
     </div>
   );
 }
