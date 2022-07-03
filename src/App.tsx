@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import './App.css';
 import InputField from './Components/InputField';
 import { toDoItem} from './model';
+import ToDoList from './Components/ToDoList';
 
 const App: React.FC = () => {
 
@@ -23,6 +24,7 @@ const App: React.FC = () => {
     <div className="App">
       <span className="heading"> This is the Header</span>
       <InputField toDo={toDo} setToDoItem={setToDo} handleAdd={handleAddItemOnSubmit} />
+      <ToDoList toDoItemList={toDoItemList} setToDoItemList={setToDoItemList} />
     </div>
   );
 }

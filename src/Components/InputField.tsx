@@ -1,5 +1,6 @@
-import React from 'react';
+import React, {useRef} from 'react';
 import './styles.css';
+
 
 interface inputFieldPropsTypes{
   toDo: string;
@@ -8,12 +9,18 @@ interface inputFieldPropsTypes{
 }
 
 export const InputField = ({toDo, setToDoItem, handleAdd} :inputFieldPropsTypes) => {
+  const inputFormRef = useRef<HTMLInputElement>(null)
 
   return (
     <form
      className='input'
-      onSubmit={handleAdd} >
-      <input type='input'
+      onSubmit={(e) =>{
+        handleAdd(e);
+        inputFormRef.current?.blur();                      // so this gets rid of the focus shadow after form is submitted
+        }} >
+      <input
+         ref = {inputFormRef}
+         type='input'
          value = {toDo}
          onChange ={
           (e)=> setToDoItem(e.target.value)
